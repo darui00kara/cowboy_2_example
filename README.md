@@ -1,24 +1,43 @@
 # Cowboy2Example
 
-**TODO: Add description**
+- json
 
-## Installation
+```cmd
+$ curl -i -H "Accept: application/json" http://localhost:4000
+HTTP/1.1 200 OK
+content-length: 21
+content-type: application/json
+date: Tue, 03 Jan 2017 13:34:08 GMT
+server: Cowboy
+vary: accept
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+{"rest": "Example!!"}
+```
 
-  1. Add `cowboy_2_example` to your list of dependencies in `mix.exs`:
+- plain text
 
-    ```elixir
-    def deps do
-      [{:cowboy_2_example, "~> 0.1.0"}]
-    end
-    ```
+```cmd
+$ curl -i -H "Accept: text/plain" http://localhost:4000
+HTTP/1.1 200 OK
+content-length: 22
+content-type: text/plain
+date: Tue, 03 Jan 2017 13:34:23 GMT
+server: Cowboy
+vary: accept
 
-  2. Ensure `cowboy_2_example` is started before your application:
+REST Example as text!!
+```
 
-    ```elixir
-    def application do
-      [applications: [:cowboy_2_example]]
-    end
-    ```
+- html
 
+```cmd
+$ curl -i -H "Accept: text/css" http://localhost:4000
+HTTP/1.1 406 Not Acceptable
+content-length: 0
+date: Tue, 03 Jan 2017 13:34:42 GMT
+server: Cowboy
+```
+
+- html(use browser)
+
+#### URL: http://localhost:4000
