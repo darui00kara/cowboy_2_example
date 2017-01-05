@@ -41,3 +41,16 @@ server: Cowboy
 - html(use browser)
 
 #### URL: http://localhost:4000
+
+- get parameter
+
+```cmd
+$ url -i "http://localhost:4000/get-parameter/?echo=EchoHello"
+HTTP/1.1 200 OK
+content-length: 9
+content-type: text/plain; charset=utf-8
+date: Thu, 05 Jan 2017 14:35:01 GMT
+server: Cowboy
+
+EchoHello
+```
