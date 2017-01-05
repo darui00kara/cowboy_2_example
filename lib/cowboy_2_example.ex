@@ -22,6 +22,6 @@ defmodule Cowboy2Example do
   end
 
   defp routes do
-    [{:_, [{"/", Cowboy2Example.Handlers.ExampleHandler, []}]}]
+    [{:_, [{"/", Cowboy2Example.Handlers.Example, []}]}]
   end
 end
