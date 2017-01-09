@@ -45,7 +45,7 @@ server: Cowboy
 - get parameter
 
 ```cmd
-$ url -i "http://localhost:4000/get-parameter/?echo=EchoHello"
+$ curl -i "http://localhost:4000/get-parameter/?echo=EchoHello"
 HTTP/1.1 200 OK
 content-length: 9
 content-type: text/plain; charset=utf-8
@@ -53,4 +53,17 @@ date: Thu, 05 Jan 2017 14:35:01 GMT
 server: Cowboy
 
 EchoHello
+```
+
+- post parameter
+
+```cmd
+$ curl -i -d echo=hogehoge http://localhost:4000/post-parameter
+HTTP/1.1 200 OK
+content-length: 8
+content-type: text/plain; charset=utf-8
+date: Mon, 09 Jan 2017 11:20:43 GMT
+server: Cowboy
+
+hogehoge
 ```

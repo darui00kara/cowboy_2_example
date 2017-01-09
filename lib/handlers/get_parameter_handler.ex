@@ -6,15 +6,15 @@ defmodule Cowboy2Example.Handlers.GetParameterHandler do
     {:ok, req, opts}
   end
 
-  def echo("GET", :undefined, req) do
+  defp echo("GET", :undefined, req) do
     :cowboy_req.reply(400, %{}, "Missing echo parameter.", req)
   end
-  def echo("GET", echo, req) do
+  defp echo("GET", echo, req) do
     :cowboy_req.reply(200,
                       %{"content-type" => "text/plain; charset=utf-8"},
                       echo, req)
   end
-  def echo(_, _, req) do
+  defp echo(_, _, req) do
     :cowboy_req.reply(405, req)
   end
 end

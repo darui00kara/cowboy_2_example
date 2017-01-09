@@ -23,6 +23,7 @@ defmodule Cowboy2Example do
 
   defp routes do
     [{:_, [{"/", Cowboy2Example.Handlers.ExampleHandler, []},
-           {"/get-parameter", Cowboy2Example.Handlers.GetParameterHandler, []}]}]
+           {"/get-parameter", Cowboy2Example.Handlers.GetParameterHandler, []},
+           {"/post-parameter", Cowboy2Example.Handlers.PostParameterHandler, []}]}]
   end
 end
