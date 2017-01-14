@@ -28,6 +28,6 @@ defmodule Cowboy2Example.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:cowboy, github: "ninenines/cowboy", tag: "2.0.0-pre.4"}]
+    [{:cowboy, github: "ninenines/cowboy", tag: "2.0.0-pre.5"}]
   end
 end

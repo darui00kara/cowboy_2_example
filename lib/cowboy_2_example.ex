@@ -6,8 +6,9 @@ defmodule Cowboy2Example do
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
 
-    dispatch = :cowboy_router.compile routes
-    {:ok, _} = :cowboy.start_clear :http, 100, [{:port, 4000}], %{env: %{dispatch: dispatch}}
+    dispatch = :cowboy_router.compile(routes)
+    {:ok, _} = :cowboy.start_clear(:http, 100, [{:port, 4000}],
+                                   %{env: %{dispatch: dispatch}})
 
     # Define workers and child supervisors to be supervised
     children = [
@@ -22,14 +23,12 @@ defmodule Cowboy2Example do
   end
 
   defp routes do
-    [{:_, [{"/", Cowboy2Example.Handlers.ExampleHandler, []},
-           {"/get-parameter", Cowboy2Example.Handlers.GetParameterHandler, []},
-           {"/post-parameter", Cowboy2Example.Handlers.PostParameterHandler, []},
-           {"/upload-top", :cowboy_static, {:priv_file, :cowboy_2_example, "index.html"}},
-           {"/upload", Cowboy2Example.Handlers.UploadHandler, []},
-           {"/stream", Cowboy2Example.Handlers.StreamHandler, []}
-         ]
-      }
-    ]
-  end
+    paths = [{"/", Cowboy2Example.Handlers.ExampleHandler, %{}},
+             {"/get-parameter", Cowboy2Example.Handlers.GetParameterHandler, %{}},
+             {"/post-parameter", Cowboy2Example.Handlers.PostParameterHandler, %{}},
+             {"/upload-top", :cowboy_static, {:priv_file, :cowboy_2_example, "index.html"}},
+             {"/upload", Cowboy2Example.Handlers.UploadHandler, %{}},
+             {"/stream", Cowboy2Example.Handlers.StreamHandler, %{}}]
+    [{:_, paths}]
+  end 
 end
