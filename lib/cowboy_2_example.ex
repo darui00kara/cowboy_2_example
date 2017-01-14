@@ -26,6 +26,10 @@ defmodule Cowboy2Example do
            {"/get-parameter", Cowboy2Example.Handlers.GetParameterHandler, []},
            {"/post-parameter", Cowboy2Example.Handlers.PostParameterHandler, []},
            {"/upload-top", :cowboy_static, {:priv_file, :cowboy_2_example, "index.html"}},
-           {"/upload", Cowboy2Example.Handlers.UploadHandler, []}]}]
+           {"/upload", Cowboy2Example.Handlers.UploadHandler, []},
+           {"/stream", Cowboy2Example.Handlers.StreamHandler, []}
+         ]
+      }
+    ]
   end
 end
