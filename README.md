@@ -67,3 +67,23 @@ server: Cowboy
 
 hogehoge
 ```
+
+- stream reply
+
+
+```cmd
+$ time curl -i http://localhost:4000/stream
+HTTP/1.1 200 OK
+date: Sat, 14 Jan 2017 03:24:09 GMT
+server: Cowboy
+transfer-encoding: chunked
+
+hoge
+hoge
+stream!
+
+real	0m2.042s
+user	0m0.004s
+sys	0m0.005s
+```
+
